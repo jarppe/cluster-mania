@@ -1,0 +1,11 @@
+variable "PROJECT_ID" {}
+variable "PROJECT_FOLDER_ID" {}
+variable "ORGANIZATION_ID" {}
+variable "BILLING_ACCOUNT" {}
+variable "REGION" {}
+variable "ZONE" {}
+variable "ACCOUNT" {}
+variable "SA_NAME" {}
+variable "CREDS" {}
+variable "GKE_USERNAME" {}
+variable "GKE_PASSWORD" {}
