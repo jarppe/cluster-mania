@@ -1,5 +1,4 @@
-/.terraform
-/.env
-/key.json
+.terraform
+.env
 *.tfstate
 *.backup
