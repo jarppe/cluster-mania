@@ -1,0 +1,23 @@
+help:
+  @just --list
+
+
+# Build "hi" image
+build:
+  docker build -t eu.gcr.io/cluster-maniaz/hi:latest .
+
+
+# Push "hi" image
+push:
+  docker push eu.gcr.io/cluster-maniaz/hi:latest
+
+
+# Apply deployment to cluster
+apply:
+  kubectl apply -f deployment.yaml
+
+
+# Run interactive shell in cluster
+sh +args='zsh':
+  @kubectl run --rm -it --image=jarppe/netspect:v1.1 "sh-$(date +%H%M%S)" -- {{ args }}
+

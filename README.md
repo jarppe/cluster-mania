@@ -14,7 +14,8 @@ Note that this is not general purpose setup, this still has couple of places wit
 1. Ensure that you have working `gcloud` setup.
 1. Run `./init.sh`
 1. Run `terraform apply`
-1. Run `gcloud container clusters get-credentials $(terraform output cluster-name) --region $TF_VAR_REGION`
+1. Run `gcloud container clusters get-credentials $(terraform output cluster-name) --region=$TF_VAR_REGION`
+1. Add HTTP load balancer `gcloud container clusters update $(terraform output cluster-name) --region=$TF_VAR_REGION --update-addons=HttpLoadBalancing=ENABLED`
 1. Test with `kubectl get svc`
 1. Profit
 

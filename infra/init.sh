@@ -168,6 +168,14 @@ gsutil mb -p ${TF_VAR_PROJECT_ID}                              \
 gsutil versioning set on "gs://${TF_VAR_PROJECT_ID}"
 
 echo
+echo "Upload some files for bastion:"
+echo
+
+gsutil cp ./zshenv ./zshrc ~/.ssh/id_rsa.pub "gs://${TF_VAR_PROJECT_ID}/init"
+
+sed -i "s/^BUCKET=.*\$/BUCKET=${TF_VAR_PROJECT_ID}/" ./bastion-startup.sh
+
+echo
 echo
 echo "==================================================================================="
 echo "Generate credentials key file:"
